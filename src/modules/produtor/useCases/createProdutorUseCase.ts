@@ -15,9 +15,6 @@ interface CreateProdutorRequest {
   createdAt: Date;
 }
 
-let produtorRepository: ProdutorRepository;
-let produtor: Produtor;
-
 @Injectable()
 export class createProdutorUseCase {
   constructor(private produtorRepository: ProdutorRepository) { }
