@@ -1,7 +1,7 @@
-import { Injectable } from "@nestjs/common";
-import { UserRepository } from "../../repositories/UserReposiory";
-import { User } from "../../entities/User";
-import { hash } from "bcrypt";
+import { Injectable } from '@nestjs/common';
+import { UserRepository } from '../../repositories/UserReposiory';
+import { User } from '../../entities/User';
+import { hash } from 'bcrypt';
 
 interface CreateUserRequest {
   email: string;
@@ -18,11 +18,10 @@ export class CreateUserUseCase {
       email,
       name,
       password: await hash(password, 10),
-    })
+    });
 
     await this.userRepository.create(user);
 
     return user;
   }
-
 }
