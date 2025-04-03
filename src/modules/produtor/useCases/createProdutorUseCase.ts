@@ -12,7 +12,6 @@ interface CreateProdutorRequest {
   areaAgricultavel: number;
   areaVegetacao: number;
   culturas: Cultura[];
-  createdAt: Date;
 }
 
 @Injectable()

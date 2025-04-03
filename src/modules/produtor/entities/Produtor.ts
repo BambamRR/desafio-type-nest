@@ -1,8 +1,8 @@
 import { randomUUID } from 'crypto';
-import { Replace } from 'src/utils/Replace';
 import { validateCpfCnpj } from 'src/utils/validadeCpfCnpj';
+import { Cultura as PrismaCultura } from '@prisma/client';
 
-export type Cultura = 'Soja' | 'Milho' | 'Algodão' | 'Café' | 'Cana de Açucar';
+type Cultura = PrismaCultura;
 
 interface ProdutorSchema {
   cpfOuCnpj: string;
@@ -97,5 +97,21 @@ export class Produtor {
 
   set areaVegetacao(areaVegetacao: number) {
     this.props.areaVegetacao = areaVegetacao;
+  }
+
+  get culturas(): Cultura[] {
+    return this.props.culturas;
+  }
+
+  set culturas(cultura: Cultura) {
+    this.props.culturas.push(cultura);
+  }
+
+  get createdAt(): Date {
+    return this.props.createdAt;
+  }
+
+  set createdAt(createdAt: Date) {
+    this.props.createdAt = createdAt;
   }
 }
