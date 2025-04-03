@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
-import { createProdutorUseCase } from 'src/modules/produtor/useCases/createProdutorUseCase';
 import { ProdutorController } from './produtor.controller';
+import { DataBaseModule } from '../database/database.module';
+import { CreateProdutorUseCase } from 'src/modules/produtor/useCases/createProdutorUseCase/createProdutorUseCase';
 
 @Module({
-  providers: [createProdutorUseCase],
+  providers: [CreateProdutorUseCase, DataBaseModule],
   controllers: [ProdutorController],
 })
 export class ProdutorModule { }

@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { Cultura, Produtor } from '../entities/Produtor';
-import { ProdutorRepository } from '../repositories/ProdutorRepository';
+import { Cultura } from '@prisma/client';
+import { Produtor } from '../../entities/Produtor';
+import { ProdutorRepository } from '../../repositories/ProdutorRepository';
 
 interface CreateProdutorRequest {
   cpfOuCnpj: string;
@@ -15,7 +16,7 @@ interface CreateProdutorRequest {
 }
 
 @Injectable()
-export class createProdutorUseCase {
+export class CreateProdutorUseCase {
   constructor(private produtorRepository: ProdutorRepository) { }
   async execute({
     cpfOuCnpj,
