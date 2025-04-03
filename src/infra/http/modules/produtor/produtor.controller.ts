@@ -1,10 +1,10 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { CreateProdutorBody } from './dto/CreateProdutorBody';
-import { createProdutorUseCase } from 'src/modules/produtor/useCases/createProdutorUseCase';
+import { CreateProdutorUseCase } from 'src/modules/produtor/useCases/createProdutorUseCase/createProdutorUseCase';
 
 @Controller('produtor')
 export class ProdutorController {
-  constructor(private createProdutorUseCase: createProdutorUseCase) { }
+  constructor(private createProdutorUseCase: CreateProdutorUseCase) { }
 
   @Post()
   async createPost(
@@ -21,7 +21,7 @@ export class ProdutorController {
       culturas,
     }: CreateProdutorBody,
   ) {
-    const produtor = this.createProdutorUseCase.execute({
+    const produtor = await this.createProdutorUseCase.execute({
       cpfOuCnpj,
       nomeProdutor,
       nomeFazenda,
