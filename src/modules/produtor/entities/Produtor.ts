@@ -103,8 +103,8 @@ export class Produtor {
     return this.props.culturas;
   }
 
-  set culturas(cultura: Cultura) {
-    this.props.culturas.push(cultura);
+  set culturas(culturas: Cultura[]) {
+    this.props.culturas = culturas;
   }
 
   get createdAt(): Date {
