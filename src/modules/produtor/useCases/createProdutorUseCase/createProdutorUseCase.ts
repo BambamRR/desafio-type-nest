@@ -42,5 +42,7 @@ export class CreateProdutorUseCase {
     });
 
     await this.produtorRepository.create(produtor);
+
+    return produtor;
   }
 }
