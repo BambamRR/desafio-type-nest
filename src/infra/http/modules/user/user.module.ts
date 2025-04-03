@@ -4,7 +4,8 @@ import { UserController } from './user.controller';
 import { DataBaseModule } from '../database/database.module';
 
 @Module({
-  providers: [CreateUserUseCase, DataBaseModule],
+  imports: [DataBaseModule],
+  providers: [CreateUserUseCase],
   controllers: [UserController],
 })
 export class UserModule { }

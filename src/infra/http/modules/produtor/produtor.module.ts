@@ -4,7 +4,8 @@ import { DataBaseModule } from '../database/database.module';
 import { CreateProdutorUseCase } from 'src/modules/produtor/useCases/createProdutorUseCase/createProdutorUseCase';
 
 @Module({
-  providers: [CreateProdutorUseCase, DataBaseModule],
+  imports: [DataBaseModule],
+  providers: [CreateProdutorUseCase],
   controllers: [ProdutorController],
 })
 export class ProdutorModule { }
