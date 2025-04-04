@@ -29,4 +29,22 @@ export class PrismaProdutorMapper {
       createdAt: createdAt || new Date(),
     };
   }
+
+  static toDomain(prismaProdutor: ProdutorRaw & { culturas: any[] }): Produtor {
+    return new Produtor(
+      {
+        cpfOuCnpj: prismaProdutor.cpfOuCnpj,
+        nomeProdutor: prismaProdutor.nomeProdutor,
+        nomeFazenda: prismaProdutor.nomeFazenda,
+        cidade: prismaProdutor.cidade,
+        estado: prismaProdutor.estado,
+        areaTotal: prismaProdutor.areaTotal,
+        areaAgricultavel: prismaProdutor.areaAgricultavel,
+        areaVegetacao: prismaProdutor.areaVegetacao,
+        culturas: prismaProdutor.culturas,
+        createdAt: prismaProdutor.createdAt,
+      },
+      prismaProdutor.id,
+    );
+  }
 }
